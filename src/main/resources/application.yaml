@@ -1,0 +1,2 @@
+crypto:
+  url:${CRYPTO_URL:https://api4.binance.com/api/v3}
