@@ -7,7 +7,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class WebClientConfig {
-    @Value("crypto.url")
+    @Value("${crypto.url}")
     private String baseUrl;
 
     @Bean
@@ -17,4 +17,5 @@ public class WebClientConfig {
                 .build();
 
     }
+
 }

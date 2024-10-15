@@ -1,2 +1,22 @@
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/crypto_db}
+    username: ${DATASOURCE_USERNAME:local}
+    password: ${DATASOURCE_PASSWORD:local}
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  servlet:
+    multipart:
+      max-file-size: 450MB
+      max-request-size: 450MB
+      enabled: true
+server:
+  error:
+    include-message: always
 crypto:
-  url:${CRYPTO_URL:https://api4.binance.com/api/v3}
+  url: ${CRYPTO_URL:https://api4.binance.com/api/v3/ticker/}
+jwt:
+  secret: ${JWT_SECRET:koi5wesavvr14jtyo99dvtme9ms}
+  expiration: ${JWT_EXPIRATION:28800000}

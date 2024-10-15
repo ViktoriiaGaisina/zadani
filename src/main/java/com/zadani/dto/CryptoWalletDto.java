@@ -1,9 +1,12 @@
 package com.zadani.dto;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class CryptoWalletDto {
+    private String symbol;
+    private String lastPrice;
 }

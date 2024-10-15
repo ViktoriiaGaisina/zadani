@@ -1,27 +1,17 @@
 package com.zadani.service;
 
+import com.zadani.dto.CryptoWalletDto;
 import com.zadani.dto.WalletFilterDto;
 import com.zadani.entity.CryptoWalletEntity;
-import com.zadani.repository.CryptoWalletRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class CryptoWalletService {
-    private final CryptoWalletRepository cryptoWalletRepository;
+public interface CryptoWalletService {
+    void save(WalletFilterDto filter);
+    List<CryptoWalletDto> getAllCryptoWallets();
 
-    public void save (WalletFilterDto filterDto) {
-        //сначала посмотрим в бд эту валюту если нет кода, то идём в апи
-        //идем в при ищем код валюты
-        // если нашли возвращаем, если нет-возращаем такой валюты нет
-        CryptoWalletEntity cryptoWalletEntity = new CryptoWalletEntity();
-        cryptoWalletRepository.save(cryptoWalletEntity);
-    }
-
-    public List<CryptoWalletEntity> getAll(){
-        return cryptoWalletRepository.findAll();
-    }
+    Mono<CryptoWalletDto> getTradingDayByCryptoCode(String symbol);
+    Optional<CryptoWalletEntity> getByName(String name);
 }
