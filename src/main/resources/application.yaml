@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/crypto_db}
-    username: ${DATASOURCE_USERNAME:local}
-    password: ${DATASOURCE_PASSWORD:local}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:password}
   jpa:
     show-sql: true
     generate-ddl: true

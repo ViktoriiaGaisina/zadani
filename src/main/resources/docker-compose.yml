@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgis/postgis:15-3.3
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_DB: my_bd
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL= vicgaisina@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    ports:
+      - "5050:5050"
+
